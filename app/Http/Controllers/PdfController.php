@@ -11,7 +11,7 @@ class PdfController extends Controller
         return view('welcome');
     }
     public function download(){
-        $pdf = Pdf::setPaper('a4', 'landscape')->loadView('pdf.example');//nombre de la vista 'resources/pdf/example.blade.php
+        $pdf = Pdf::setOption(['dpi' =>300, 'defaultFont'=>'arial', 'defaultPaperSize' => 'letter'])->loadView('pdf.example');//nombre de la vista 'resources/pdf/example.blade.php
         return $pdf->download('my-example.pdf');
     }
 
