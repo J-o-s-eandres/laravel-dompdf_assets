@@ -11,8 +11,8 @@ class PdfController extends Controller
         return view('welcome');
     }
     public function download(){
-        $pdf = Pdf::setPaper('a4', 'landscape')->loadView('pdf.example');//nombre de la vista 'resources/pdf/example.blade.php
-        $pdf->save('/my_file.pdf');
+        $data = "Joseandres";
+        $pdf = Pdf::loadView('pdf.example',['data' =>$data]);//nombre de la vista 'resources/pdf/example.blade.php
         return $pdf->download('my-example.pdf');
     }
 
